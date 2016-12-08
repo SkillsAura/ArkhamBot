@@ -25,7 +25,7 @@
     localStorage.setItem("arkhamBotsettings", JSON.stringify({
       botName: "arkhamBot",
       language: "english",
-      chatLink: "https://github.com/SkillsAura/ArkhamBot/blob/master/lang/en.json", 
+      chatLink: "https://raw.githubusercontent.com/SkillsAura/ArkhamBot/master/lang/en.json", 
       scriptLink: "https://raw.githubusercontent.com/SkillsAura/ArkhamBot/master/lang/en.json", 
       roomLock: false, // Requires an extension to re-load the script
       startupCap: 100, // 1-200
