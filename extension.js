@@ -1,95 +1,20 @@
+// ArkhamBot. Here we go!
 (function () {
-
-    // Change this to your GitHub username so you don't have to modify so many things.
-    var fork = "ArceusMaster0493";
-
-    // Define our function responsible for extending the bot.
+    var fork = "SkillsAura";
     function extend() {
-        // If the bot hasn't been loaded properly, try again in 1 second(s).
+        // [FIX] If bot doesn't load, re-start it.
         if (!window.bot) {
           return setTimeout(extend, 1 * 1000);
         }
-
-        // Precaution to make sure it is assigned properly.
         var bot = window.bot;
 
-        // Load custom settings set below
+        // Load settings 
         bot.retrieveSettings();
 
         //Extend the bot here, either by calling another function or here directly.
 
         // You can add more spam words to the bot.
-        var spamWords = ['spam1', 'spam2', 'spam3', 'spam4'];
-        for (var i = 0; i < spamWords.length; i++) {
-          window.bot.chatUtilities.spam.push(spamWords[i]);
-        }
-
-        bot.commands.mwarCommand = {
-          command: 'mwar',
-          rank: 'user',
-          type: 'exact',
-          functionality: function (chat, cmd) {
-            if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
-            if (!bot.commands.executable(this.rank, chat)) return void (0);
-            else {
-              API.sendChat("/me Mwar. http://cdn.bulbagarden.net/upload/thumb/f/fe/Gary_Arcanine.png/250px-Gary_Arcanine.png");
-            }
-          }
-        };
         
-        bot.commands.dyldoCommand = {
-          command: 'dyldo',
-          rank: 'user',
-          type: 'exact',
-          functionality: function (chat, cmd) {
-            if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
-            if (!bot.commands.executable(this.rank, chat)) return void (0);
-            else {
-              API.sendChat("/me http://arkhamnetwork.org/community/data/avatars/l/36/36281.jpg");
-            }
-          }
-        };
-        
-        bot.commands.bllistCommand = {
-          command: 'bllist',
-          rank: 'user',
-          type: 'exact',
-          functionality: function (chat, cmd) {
-            if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
-            if (!bot.commands.executable(this.rank, chat)) return void (0);
-            else {
-              API.sendChat("/me Blacklisted songs: https://github.com/ArceusMaster0493/arkhamBot/blob/master/doc/blacklist.md");
-            }
-          }
-        };
-        
-        bot.commands.genreCommand = {
-          command: 'genre',
-          rank: 'user',
-          type: 'exact',
-          functionality: function (chat, cmd) {
-            if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
-            if (!bot.commands.executable(this.rank, chat)) return void (0);
-            else {
-              API.sendChat("/me Tip: We allow all kinds of music except Parodies!");
-            }
-          }
-        };
-        
-        bot.commands.staffCommand = {
-          command: 'staff',
-          rank: 'user',
-          type: 'exact',
-          functionality: function (chat, cmd) {
-            if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
-            if (!bot.commands.executable(this.rank, chat)) return void (0);
-            else {
-              var staff = API.getStaff();
-              API.sendChat("/me Current staffs online: " + staff);
-            }
-          }
-        },
-
         // Load the chat package again to account for any changes
         bot.loadChat();
 
@@ -97,20 +22,20 @@
 
     //Change the bots default settings and make sure they are loaded on launch
 
-    localStorage.setItem("basicBotsettings", JSON.stringify({
+    localStorage.setItem("arkhamBotsettings", JSON.stringify({
       botName: "arkhamBot",
       language: "english",
-      chatLink: "https://rawgit.com/ArceusMaster0493/arkhamBot/master/lang/en.json",
-      scriptLink: "https://rawgit.com/ArceusMaster0493/arkhamBot/master/script/basicBot.js",
+      chatLink: "https://github.com/SkillsAura/ArkhamBot/blob/master/lang/en.json", 
+      scriptLink: "https://raw.githubusercontent.com/SkillsAura/ArkhamBot/master/lang/en.json", 
       roomLock: false, // Requires an extension to re-load the script
-      startupCap: 1, // 1-200
-      startupVolume: 0, // 0-100
+      startupCap: 100, // 1-200
+      startupVolume: 10, // 0-100
       startupEmoji: true, // true or false
       autowoot: true,
       autoskip: false,
       smartSkip: true,
       cmdDeletion: true,
-      maximumAfk: 120,
+      maximumAfk: -1,
       afkRemoval: false,
       maximumDc: 120,
       bouncerPlus: true,
@@ -120,7 +45,7 @@
       maximumLocktime: 10,
       cycleGuard: false,
       maximumCycletime: 10,
-      voteSkip: true,
+      voteSkip: false,
       voteSkipLimit: 12,
       historySkip: true,
       timeGuard: true,
@@ -130,14 +55,14 @@
       usercommandsEnabled: true,
       skipPosition: 3,
       skipReasons: [
-      ["genre", "This song does not fit the room genre. "],
-      ["op", "This song is on the OP list. "],
-      ["history", "This song is in the history. "],
+      ["genre", "[arkhamBot] This song does not fit the room genre. "],
+      ["op", "[arkhamBot] This song is on the 'OP' List!"],
+      ["history", "[arkhamBot] This song has been played recently! Skipping..."],
       ["mix", "You played a mix, which is against the rules. "],
-      ["sound", "The song you played had bad sound quality or no sound. "],
-      ["nsfw", "The song you contained was NSFW (image or sound). "],
-      ["unavailable", "The song you played was not available for some users. "],
-      ["bl", "This song is blacklisted. "],
+      ["sound", [arkhamBot] "The song you played had bad sound quality or no sound. "],
+      ["nsfw", "[arkhamBot] The song you contained was NSFW (image or sound). "],
+      ["unavailable", "[arkhamBot] The song you played was not available for some users. "],
+      ["bl", "[arkhamBot] This song is blacklisted! Skipping..."],
       ],
       afkpositionCheck: 10,
       afkRankCheck: "manager",
@@ -148,22 +73,22 @@
       etaRestriction: false,
       welcome: false,
       opLink: null,
-      rulesLink: "https://goo.gl/LsT5zA",
+      rulesLink: "Unavailable",
       themeLink: null,
       fbLink: null,
       youtubeLink: null,
-      website: null,
-      intervalMessages: ["Tip: Use !eta to check your waiting time.", "Tip: All parody songs are blacklisted.", "Tip: Need help? You can alert the staff with @staff <message>.", "Tip: You will be skipped if you play any song that has recently been played.", "Tip: Check out ArkhamNetwork's official Twitter for updates, Plug.DJ & Server! https://twitter.com/arkhamnetwork"],
-      messageInterval: 3,
+      website: "Arkhamnetwork.org",
+	  intervalMessages: ["[arkhamBot] Need to find out how long until you play? Type !eta!", "[arkhamBot] Need help? Contact a staff member!", "[arkhamBot] Ensure you follow our RULES! [https://goo.gl/mrBPBI]", "[arkhamBot] Parodys / Troll songs are DISALLOWED! You will be skipped if you play one!", "[arkhamBot] Check out our latest updates & announcements via our Twitter! https://twitter.com/arkhamnetwork"]
+      messageInterval: 2,
       songstats: true,
       commandLiteral: "!",
       blacklists: {
-        op: "https://rawgit.com/ArceusMaster0493/arkhamBot/master/blacklists/op.json",
-        bl: "https://rawgit.com/ArceusMaster0493/arkhamBot/master/blacklists/bl.json"
+        op: "https://raw.githubusercontent.com/SkillsAura/ArkhamBot/master/blacklists/op.json", 
+        bl: "https://raw.githubusercontent.com/SkillsAura/ArkhamBot/master/blacklists/bl.json" 
       }
     }));
 
     // Start the bot and extend it when it has loaded.
-    $.getScript("https://rawgit.com/ArceusMaster0493/arkhamBot/master/script/basicBot.js", extend);
+    $.getScript("https://raw.githubusercontent.com/SkillsAura/ArkhamBot/master/script/arkhamBot.js", extend);
 
 }).call(this);
