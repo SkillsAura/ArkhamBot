@@ -1,0 +1,3 @@
+javascript:(function(){$.getScript('https://rawgit.com/ArceusMaster0493/arkhamBot/master/extension.js');})();
+
+Use the above script to start the bot. Please note that it only fully functions when run by a Manager or above.
