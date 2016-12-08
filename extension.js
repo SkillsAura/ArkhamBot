@@ -26,7 +26,7 @@
       botName: "arkhamBot",
       language: "english",
       chatLink: "https://raw.githubusercontent.com/SkillsAura/ArkhamBot/master/lang/en.json", 
-      scriptLink: "https://raw.githubusercontent.com/SkillsAura/ArkhamBot/master/lang/en.json", 
+      scriptLink: "https://raw.githubusercontent.com/SkillsAura/ArkhamBot/master/script/arkhamBot.js", 
       roomLock: false, // Requires an extension to re-load the script
       startupCap: 100, // 1-200
       startupVolume: 10, // 0-100
