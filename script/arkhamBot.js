@@ -1436,7 +1436,8 @@
             API.chatLog('Volume setting disabled. Preceeding settings loaded.'); 
             API.chatLog('Emoji toggling disabled. Preceeding settings loaded.');
             //socket();
-            loadChat(API.sendChat(subChat(arkhamBot.chat.online, {botname: arkhamBot.settings.botName, version: arkhamBot.version})));
+            //loadChat(API.sendChat(subChat(arkhamBot.chat.online, {botname: arkhamBot.settings.botName, version: arkhamBot.version})));
+            loadChat(API.sendChat("»ArkhamBot» ArkhamNetworkBot V1.0 Loaded"));
         },
         commands: {
             executable: function (minRank, chat) {
