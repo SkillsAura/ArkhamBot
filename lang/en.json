@@ -157,7 +157,7 @@
     "eta": "\/me »ArkhamBot»  [@%%NAME%%] Your in position %%POSITION%%. You should reach the booth in %%TIME%%.",
     "facebook": "\/me »ArkhamBot»  @%%NAME%% >> Like us on Facebook: %%LINK%%",
     "starterhelp": "\/me »ArkhamBot»  Visit the following link, this will get you started on PlugDJ. %%LINK%%",
-    "roulettejoin": "@%%NAME%% >> You joined the roulette! (!leave if you regret it)",
+    "roulettejoin": "@%%NAME%% >> You joined the ROULETTE! You will be moved to a RANDOM position if you win!",
     "jointime": "\/me »ArkhamBot»  @%%NAMEFROM%% >> %%USERNAME%% has been in the room for %%TIME%%.",
     "kickrank": "\/me »ArkhamBot»  @%%NAME%% >> You can't kick users with an equal or higher rank than you!",
     "kick": "\/me »ArkhamBot»  @%%NAME%% >> @%%USERNAME%% you are being kicked from the community for %%TIME%% minutes.",
@@ -203,6 +203,5 @@
     "voteratio": "\/me »ArkhamBot»  @%%NAME%% >> @%%USERNAME%% ~ woots: %%WOOT%%, mehs: %%MEHS%%, ratio (w\/m): %%RATIO%%.",
     "website": "\/me »ArkhamBot»  @%%NAME%% >> Please visit our website: %%LINK%%",
     "youtube": "\/me »ArkhamBot»  @%%NAME%% >> Subscribe to us on YouTube: %%LINK%%",
-
 	"songstatistics": "\/me [Song Stats] %%ARTIST%%:%%TITLE%% | Woots: %%WOOTS%% | Grabs: %%GRABS%% | Mehs: %%MEHS%%"
 }
